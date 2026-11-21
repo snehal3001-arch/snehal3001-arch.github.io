@@ -763,6 +763,10 @@ button {
 }
 
 .about__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 260px);
+  align-items: center;
+  gap: 36px;
   padding: 40px;
   overflow: hidden;
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
@@ -797,6 +801,92 @@ button {
 
 .about__card p:last-of-type {
   margin-bottom: 0;
+}
+
+.about__card-copy {
+  min-width: 0;
+}
+
+/* ---------- About portrait ---------- */
+.about__portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  margin: 0;
+}
+
+.about__portrait-frame {
+  position: relative;
+  width: min(100%, 260px);
+  /* Keep the source photograph's original 414 x 656 portrait ratio. */
+  aspect-ratio: 414 / 656;
+  /* A slim inset mat adds comfortable space around the head and glasses
+     without cropping, stretching or otherwise altering the photograph. */
+  padding: 12px;
+  border: 1px solid rgba(196, 181, 253, 0.34);
+  border-radius: 26px;
+  background: linear-gradient(160deg, rgba(20, 17, 44, 0.92), rgba(9, 8, 24, 0.95));
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.5), 0 0 34px rgba(124, 58, 237, 0.28);
+  isolation: isolate;
+}
+
+.about__portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  z-index: -1;
+  border-radius: 36px;
+  background: radial-gradient(circle at 50% 42%, rgba(139, 92, 246, 0.4), rgba(91, 46, 182, 0.16) 55%, transparent 74%);
+  filter: blur(18px);
+}
+
+.about__portrait-frame img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Always show the complete original image: no crop, no stretch, no distortion. */
+  object-fit: contain;
+  object-position: center;
+  border-radius: 16px;
+}
+
+.about__portrait-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.about__portrait-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px;
+  border: 1px solid rgba(167, 139, 250, 0.26);
+  border-radius: 999px;
+  color: var(--lavender-light);
+  background: rgba(139, 92, 246, 0.1);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about__portrait-caption::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lavender);
+  box-shadow: 0 0 10px var(--violet-soft);
 }
 
 .about__side {
@@ -2317,7 +2407,17 @@ button {
   }
 
   .about__card {
+    grid-template-columns: 1fr;
+    gap: 30px;
     padding: 28px 24px;
+  }
+
+  .about__portrait {
+    order: -1;
+  }
+
+  .about__portrait-frame {
+    width: min(100%, 250px);
   }
 
   .about__side {

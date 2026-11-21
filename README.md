@@ -20,12 +20,13 @@ snehal-portfolio/
 │   │   ├── .gitkeep
 │   │   └── favicon.svg
 │   ├── images/
-│   │   └── .gitkeep
+│   │   ├── .gitkeep
+│   │   └── snehal-profile.jpg
 │   └── Snehal_Chorge_Resume_Updated.pdf
 └── README.md
 ```
 
-The visual artwork is built with CSS and inline SVG; there are no stock images or third-party icon libraries.
+The decorative artwork is built with CSS and inline SVG. The About section uses Snehal's own photograph from `assets/images/snehal-profile.jpg`; no stock imagery or third-party icon libraries are used.
 
 ## Requirements
 
@@ -56,7 +57,8 @@ Then open <http://localhost:8123>.
 
 - Responsive glass navigation with seven section links and an SC monogram.
 - Immersive hero with an animated canvas starfield and CSS orbital artwork.
-- About, Education, Skills, Projects, Certifications, Resume and Contact sections.
+- About section with Snehal's real portrait (rounded frame, purple glow, soft shadow) alongside the bio.
+- Education, Skills, Projects, Certifications, Resume and Contact sections.
 - Interactive education timeline, skill filters and skill detail panel.
 - Three project cards; no links are shown until real URLs are provided.
 - Resume download using a relative path to `assets/Snehal_Chorge_Resume_Updated.pdf`.
